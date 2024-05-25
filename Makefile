@@ -39,6 +39,10 @@ worker-install: worker-containerd worker-install
 master-containerd:
 	./master/containerd.sh
 
+# Install helm chart on master
+master-helm:
+	./master/helm-chart.sh
+
 # Install Kubernetes on master
 master-install:
 	./master/install.sh

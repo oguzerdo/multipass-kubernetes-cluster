@@ -1,3 +1,5 @@
+sudo sh -c "echo $(hostname -i | xargs -n1 | grep ^10.) $(hostname) >> /etc/hosts"
+
 # Write the specified values into /etc/sysctl.d/k8s.conf file
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -37,10 +39,15 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
 # Initialize the Kubernetes control-plane
-sudo kubeadm init
+sudo kubeadm config images pull
+
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=$(hostname -i | xargs -n1 | grep ^10.)
 
 mkdir -p $HOME/.kube
 
 sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml

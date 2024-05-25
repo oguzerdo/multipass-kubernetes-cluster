@@ -1,3 +1,5 @@
+sudo sh -c "echo $(hostname -i | xargs -n1 | grep ^10.) $(hostname) >> /etc/hosts"
+
 # Write the specified values into /etc/sysctl.d/k8s.conf file
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1

@@ -17,8 +17,10 @@ EOF
 # Apply sysctl params without reboot
 sudo sysctl --system
 
+# To temporarily disable swap we can run the following command.
 sudo swapoff -a
-free -m
+
+# To make it persistent
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg

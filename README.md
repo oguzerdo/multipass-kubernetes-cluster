@@ -9,67 +9,6 @@ This project provides a Makefile to create a Kubernetes cluster using Multipass.
 - [Multipass](https://multipass.run/) must be installed.
 - An environment where you can run the `make` command.
 
-## Usage
-
-### Makefile Targets
-
-- `deploy`: Launches a master node and a specified number of worker nodes. By default, it creates 3 worker nodes.
-- `destroy`: Stops, deletes, and purges all Multipass virtual machines.
-- `connect-master`: Connects to the master node.
-- `connect-worker<NUMBER>`: Connects to the specified worker node.
-- `master-install`: Installs containerd, Docker, and Kubernetes on the master node.
-- `worker-install`: Installs containerd, Docker, and Kubernetes on the worker nodes.
-
-### Parameters
-
-- `NODE_COUNT`: Specifies the number of worker nodes to create. The default value is 3.
-
-### Example Usage
-
-To create a Kubernetes cluster with a master node and the default 3 worker nodes:
-
-```sh
-make deploy
-```
-
-To create a Kubernetes cluster with a master node and a specified number (e.g., 3) of worker nodes:
-
-```sh
-make deploy NODE_COUNT=3
-```
-
-To connect to the master node:
-
-```sh
-make connect-master
-```
-
-
-To connect to a specific worker node (e.g., worker2):
-
-```sh
-make connect-worker2
-```
-
-To install components on the master node:
-
-```sh
-make master-install
-```
-
-To install components on the worker nodes:
-
-```sh
-make worker-install
-```
-
-To destroy all created Multipass virtual machines:
-
-```sh
-make destroy
-```
-
-
 
 ## Installation Steps
 
@@ -145,3 +84,64 @@ sudo kubeadm join 192.168.64.44:6443 --token c31uwt.pl4l2h2999snazxt \
 	--discovery-token-ca-cert-hash sha256:cf7da133ee8929acfe4650c6f9269299dff36a0b9e97623f141177315153f704
 ```
 
+![alt text](images/nodes.png)
+
+
+
+### Makefile Targets
+
+- `deploy`: Launches a master node and a specified number of worker nodes. By default, it creates 3 worker nodes.
+- `destroy`: Stops, deletes, and purges all Multipass virtual machines.
+- `connect-master`: Connects to the master node.
+- `connect-worker<NUMBER>`: Connects to the specified worker node.
+- `master-install`: Installs containerd, Docker, and Kubernetes on the master node.
+- `worker-install`: Installs containerd, Docker, and Kubernetes on the worker nodes.
+
+### Parameters
+
+- `NODE_COUNT`: Specifies the number of worker nodes to create. The default value is 3.
+
+### Example Usage
+
+To create a Kubernetes cluster with a master node and the default 3 worker nodes:
+
+```sh
+make deploy
+```
+
+To create a Kubernetes cluster with a master node and a specified number (e.g., 3) of worker nodes:
+
+```sh
+make deploy NODE_COUNT=3
+```
+
+To connect to the master node:
+
+```sh
+make connect-master
+```
+
+
+To connect to a specific worker node (e.g., worker2):
+
+```sh
+make connect-worker2
+```
+
+To install components on the master node:
+
+```sh
+make master-install
+```
+
+To install components on the worker nodes:
+
+```sh
+make worker-install
+```
+
+To destroy all created Multipass virtual machines:
+
+```sh
+make destroy
+```

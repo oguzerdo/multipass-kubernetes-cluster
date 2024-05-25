@@ -41,7 +41,7 @@ sudo systemctl restart kubelet
 # Initialize the Kubernetes control-plane
 sudo kubeadm config images pull
 
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=$(hostname -i | xargs -n1 | grep ^10.)
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 # To start using your cluster, you need to run the following as a regular user:
 mkdir -p $HOME/.kube

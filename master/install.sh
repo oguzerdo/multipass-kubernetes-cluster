@@ -45,7 +45,7 @@ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint=$(h
 
 # To start using your cluster, you need to run the following as a regular user:
 mkdir -p $HOME/.kube
-sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Install Pod network add-on (calico)

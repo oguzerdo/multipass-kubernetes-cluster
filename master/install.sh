@@ -11,8 +11,7 @@ EOF
 sudo sysctl --system
 
 # Update the apt package index and install packages needed to use the Kubernetes apt repository:
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 
 # Download the public signing key for the Kubernetes package repositories. 
 # The same signing key is used for all repositories so you can disregard the version in the URL:

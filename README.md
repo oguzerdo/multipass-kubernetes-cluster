@@ -94,8 +94,8 @@ sudo kubeadm join 192.168.64.44:6443 --token c31uwt.pl4l2h2999snazxt \
 - `destroy`: Stops, deletes, and purges all Multipass virtual machines.
 - `connect-master`: Connects to the master node.
 - `connect-worker<NUMBER>`: Connects to the specified worker node.
-- `master-install`: Installs containerd, Docker, and Kubernetes on the master node.
-- `worker-install`: Installs containerd, Docker, and Kubernetes on the worker nodes.
+- `master-install`: Installs containerd, and Kubernetes on the master node.
+- `worker-install`: Installs containerd, and Kubernetes on the worker nodes.
 
 ### Parameters
 
@@ -145,3 +145,18 @@ To destroy all created Multipass virtual machines:
 ```sh
 make destroy
 ```
+
+
+ 
+## OPTIONAL STEPS:
+
+
+### Assign worker roles
+
+kubectl label node worker1 http://node-role.kubernetes.io/worker=worker
+
+kubectl label node worker2 http://node-role.kubernetes.io/worker=worker
+
+kubectl label node worker3 http://node-role.kubernetes.io/worker=worker
+
+![alt text](images/node-roles.png)

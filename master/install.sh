@@ -7,7 +7,6 @@ EOF
 # Reload the sysctl settings from all system configuration files
 sudo sysctl --system
 
-
 # Update the apt package index and install packages needed to use the Kubernetes apt repository:
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
@@ -38,6 +37,10 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
 # Initialize the Kubernetes control-plane
-sudo rm /etc/containerd/config.toml
-sudo systemctl restart containerd
 sudo kubeadm init
+
+mkdir -p $HOME/.kube
+
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+
+sudo chown $(id -u):$(id -g) $HOME/.kube/config

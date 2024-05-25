@@ -138,8 +138,10 @@ cd multipass-kubernetes-cluster
 make worker-install
 ```
 
-3.5 Run what you copied from Step 2, something like this,
+3.5 Run what you copied from Step 2 with sudo, something like this,
 
 ```sh
-kubeadm join 192.168.64.3:6443 --token al0kvi.x60mi1xj4zesqnq3     --discovery-token-ca-cert-hash sha256:f4ff0c7684bbac599a8208b94bb28e451023662ab51bc1ce16f60a855a85e2a5
+sudo kubeadm join 192.168.64.44:6443 --token c31uwt.pl4l2h2999snazxt \
+	--discovery-token-ca-cert-hash sha256:cf7da133ee8929acfe4650c6f9269299dff36a0b9e97623f141177315153f704
 ```
+

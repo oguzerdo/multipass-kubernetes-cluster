@@ -154,11 +154,11 @@ make destroy
 ### Assign worker roles
 
 ```bash
-kubectl label node worker1 http://node-role.kubernetes.io/worker=worker
+kubectl label node worker1 node-role.kubernetes.io/worker=worker
 
-kubectl label node worker2 http://node-role.kubernetes.io/worker=worker
+kubectl label node worker2 node-role.kubernetes.io/worker=worker
 
-kubectl label node worker3 http://node-role.kubernetes.io/worker=worker
+kubectl label node worker3 node-role.kubernetes.io/worker=worker
 ```
 
 ![alt text](images/node-roles.png)

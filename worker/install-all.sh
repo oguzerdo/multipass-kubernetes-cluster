@@ -1,0 +1,2 @@
+./containerd.sh
+./install.sh

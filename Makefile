@@ -8,13 +8,13 @@ deploy: create-master create-workers
 
 # Create master node
 create-master:
-	multipass launch --name master -c 2 -m 20G
+	multipass launch --name master -c 2 -m 2G -d 20G
 
 # Create worker nodes
 create-workers:
 	$(eval N := $(NODE_COUNT))
 	@for i in $$(seq 1 $(N)); do \
-		multipass launch --name worker$$i -c 2 -m 20G; \
+		multipass launch --name worker$$i -c 2 -m 2G -d 20G; \
 	done
 
 # Destroy target

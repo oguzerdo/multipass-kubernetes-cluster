@@ -38,9 +38,6 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
-# Initialize the Kubernetes control-plane
-sudo kubeadm config images pull
-
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 # To start using your cluster, you need to run the following as a regular user:
@@ -49,5 +46,5 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Install Pod network add-on (calico)
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/tigera-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/custom-resources.yaml

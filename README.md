@@ -87,6 +87,12 @@ sudo kubeadm join 192.168.64.44:6443 --token c31uwt.pl4l2h2999snazxt \
 ![alt text](images/nodes.png)
 
 
+### Step. 4 Helm Installation
+
+```makefile
+make get-helm
+```
+
 
 ### Makefile Targets
 

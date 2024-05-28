@@ -40,7 +40,7 @@ master-containerd:
 	./master/containerd.sh
 
 # Install helm chart on master
-master-helm:
+get-helm:
 	./master/helm-chart.sh
 
 # Install Kubernetes on master
